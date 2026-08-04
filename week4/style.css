@@ -1,0 +1,35 @@
+body{
+    font-family: Arial;
+    background:linear-gradient(to right, #61a082, #df9197);
+    text-align:center;
+}
+
+input,textarea{
+    width:300px;
+    padding:10px;
+    margin:5px;
+}
+
+button{
+    padding:8px 15px;
+    cursor:pointer;
+}
+
+#notesContainer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:20px;
+}
+
+.note{
+    width:220px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 5px gray;
+}
+
+.note button{
+    margin:5px;
+}
