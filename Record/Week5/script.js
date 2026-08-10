@@ -1,82 +1,64 @@
-const title = document.getElementById("title");
-const content = document.getElementById("content");
-const color = document.getElementById("color");
-const addBtn = document.getElementById("addBtn");
-const notesContainer = document.getElementById("notesContainer");
-
-let notes = [];
-
-addBtn.addEventListener("click", addNote);
-
-function addNote(){
-
-    if(title.value=="" || content.value==""){
-        alert("Enter Title and Note");
+// Store all expenses
+let expenses = [];
+// Get HTML elements
+const expenseName = document.getElementById("expenseName");
+const expenseAmount = document.getElementById("expenseAmount");
+const addButton = document.getElementById("addButton");
+const expenseList = document.getElementById("expenseList");
+const total = document.getElementById("total");
+const themeButton = document.getElementById("themeButton");
+// Add an expense
+function addExpense() {
+    const name = expenseName.value;
+    const amount = Number(expenseAmount.value);
+// Check if inputs are empty
+    if (name === "" || amount <= 0) {
+        alert("Please enter a valid expense.");
         return;
     }
-
-    let note={
-        title:title.value,
-        content:content.value,
-        color:color.value
+    const expense = {
+        name: name,
+        amount: amount
     };
-
-    notes.push(note);
-
-    displayNotes();
-
-    title.value="";
-    content.value="";
+    expenses.push(expense);
+    displayExpenses();
+    calculateTotal();
+    expenseName.value = "";
+    expenseAmount.value = "";
+}
+// Display expenses
+function displayExpenses() {
+    expenseList.innerHTML = "";
+    expenses.forEach(function(expense, index) {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>
+                ${expense.name} - ₹${expense.amount}
+            </span>
+            <button onclick="deleteExpense(${index})">
+                Delete
+            </button>
+        `;
+        expenseList.appendChild(li);
+    });
+}
+// Calculate total expenses
+function calculateTotal() {
+    let totalAmount = 0;
+    expenses.forEach(function(expense) {
+        totalAmount = totalAmount + expense.amount;
+    });
+    total.textContent = "₹" + totalAmount;
+}
+// Delete an expense
+function deleteExpense(index) {
+    expenses.splice(index, 1);
+    displayExpenses();
+    calculateTotal();
 }
 
-function displayNotes(){
+addButton.addEventListener("click", addExpense);
 
-    notesContainer.innerHTML="";
-
-    for(let i=0;i<notes.length;i++){
-
-        let card=document.createElement("div");
-        card.className="note";
-        card.style.backgroundColor=notes[i].color;
-
-        let h2=document.createElement("h2");
-        h2.innerHTML=notes[i].title;
-
-        let p=document.createElement("p");
-        p.innerHTML=notes[i].content;
-
-        let edit=document.createElement("button");
-        edit.innerHTML="Edit";
-
-        let del=document.createElement("button");
-        del.innerHTML="Delete";
-
-        edit.addEventListener("click",function(){
-
-            let newTitle=prompt("Enter Title",notes[i].title);
-            let newContent=prompt("Enter Note",notes[i].content);
-
-            if(newTitle!=null && newContent!=null){
-                notes[i].title=newTitle;
-                notes[i].content=newContent;
-                displayNotes();
-            }
-
-        });
-
-        del.addEventListener("click",function(){
-
-            notes.splice(i,1);
-            displayNotes();
-
-        });
-
-        card.appendChild(h2);
-        card.appendChild(p);
-        card.appendChild(edit);
-        card.appendChild(del);
-
-        notesContainer.appendChild(card);
-
-    }
-}
+themeButton.addEventListener("click", function() {
+    document.body.classList.toggle("dark");
+});
