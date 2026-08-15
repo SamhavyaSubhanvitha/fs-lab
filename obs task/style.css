@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a1939342;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Main container */
+.container {
+    width: 450px;
+    margin: auto;
+    padding: 25px;
+    background-color: rgb(98, 123, 124);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgb(54, 104, 73);
+}
+
+/* Page heading */
+h1 {
+    text-align: center;
+    color: #070707;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+/* Display button */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #1a1224;
+    color: rgb(239, 240, 239);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #306ba9;
+}
+
+/* Dynamically generated student profile */
+.profile {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f2ebf3;
+    border-left: 5px solid #3d303d;
+    border-radius: 8px;
+}
+
+/* Profile heading */
+.profile h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #551c45;
+}
+
+/* Profile details */
+.profile p {
+    font-size: 16px;
+    line-height: 1.6;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile</title>
+
+    <!-- Link external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Registration</h1>
+
+        <!-- Student input form -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter student name">
+
+        <label for="rollNo">Roll Number:</label>
+        <input type="text" id="rollNo" placeholder="Enter roll number">
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" placeholder="Enter department">
+
+        <label for="cgpa">CGPA:</label>
+        <input type="number" id="cgpa" step="0.01" placeholder="Enter CGPA">
+
+        <!-- Button to generate the profile -->
+        <button id="displayBtn">Display Student Profile</button>
+
+        <!-- Dynamically generated profile will appear here -->
+        <div id="profileContainer"></div>
+
+    </div>
+
+    <!-- Link external JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
