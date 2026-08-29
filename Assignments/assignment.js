@@ -104,3 +104,21 @@ const name = new Area("403","Kommadi");
 name.house();
 name.sofa();
 name.bed();
+
+//Hybrid Inheritance
+console.log("Hybrid Inheritance");
+class Device{
+    turnOn(){
+        console.log("Device is on");
+    }
+}
+const Battery={
+    charge(){
+        console.log("Charging battery");
+    }
+};
+class ToyCar extends Device{}
+Object.assign(ToyCar.prototype,Battery);
+const myToy = new ToyCar();
+myToy.turnOn();
+myToy.charge();
