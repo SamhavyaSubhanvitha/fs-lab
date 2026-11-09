@@ -29,65 +29,51 @@ student-management-system/
 ```
 
 ---
+### Install Backend Dependencies
 
-## Quick Start Guide (Local Setup)
+```bash
+npm install
+```
 
-### Prerequisites
-- Node.js (v18.x or later)
-- MongoDB (Local community server running on port 27017 or a MongoDB Atlas connection URI)
+### Start Backend Server
 
-### 1. Backend Setup
 ```bash
 cd backend
 npm install
-npm start
+node server.js
 ```
-- The backend server will start at: `http://localhost:5000`
-- Test health check: `http://localhost:5000/api/health`
 
-### 2. Frontend Setup
-In a new terminal:
+### Run Frontend
 ```bash
-cd frontend
+cd casestudy/frontend
 npm install
 npm run dev
 ```
-- The React application will start at: `http://localhost:5173`
 
----
+## Installation & Local Setup
 
-## Cloud Deployment Guide
+1. Clone the repository
 
-### 1. Database: MongoDB Atlas
-1. Sign in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
-2. Create a free M0 Shared Cluster.
-3. In **Database Access**, create a user with read and write privileges.
-4. In **Network Access**, add IP `0.0.0.0/0` (allow access from anywhere) so Render can connect.
-5. In **Database** > **Connect** > **Drivers**, copy the connection string:
-   `mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority`
+git clone https://github.com/SamhavyaSubhanvitha/.git
 
-### 2. Backend: Render (Web Service)
-1. Push your project or `backend` folder to a GitHub repository.
-2. Sign in to [Render](https://render.com) and click **New Web Service**.
-3. Connect your repository and configure:
-   - **Root Directory**: `backend` (if in monorepo) or leave empty if repository root
-   - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-4. Add **Environment Variables**:
-   - `MONGODB_URI`: `<Your MongoDB Atlas connection string>`
-   - `DB_NAME`: `student_management_db`
-   - `FRONTEND_ORIGIN`: `https://<your-vercel-app>.vercel.app`
-   - `NODE_ENV`: `production`
-5. Click **Deploy Web Service** and copy the deployed URL (e.g., `https://student-api.onrender.com`).
+2. Install dependencies
 
-### 3. Frontend: Vercel
-1. Sign in to [Vercel](https://vercel.com) and click **Add New Project**.
-2. Import your GitHub repository.
-3. Configure the project:
-   - **Root Directory**: `frontend`
-   - **Framework Preset**: `Vite`
-4. Under **Environment Variables**, add:
-   - `VITE_API_URL`: `https://student-api.onrender.com` (Your Render backend URL)
-5. Click **Deploy**. Vercel will provide your live URL (e.g., `https://student-management-system.vercel.app`).
-6. Update the `FRONTEND_ORIGIN` variable in Render to match your Vercel URL.
+npm install
+
+3. Start MongoDB
+
+4. Run the server
+
+node server.js
+
+## Live Demo
+
+Frontend:
+https://student-management-system-8vpsrffnj.vercel.app
+
+Backend:
+https://student-management-system-backend-m17c.onrender.com/api/health
+
+## Developed By
+
+Samhavya Subhanvitha
