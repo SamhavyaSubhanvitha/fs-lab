@@ -54,7 +54,8 @@ npm run dev
 
 1. Clone the repository
 
-git clone https://github.com/SamhavyaSubhanvitha/.git
+git clone https://github.com/SamhavyaSubhanvitha/fs-lab.git
+cd fs-lab/casestudy
 
 2. Install dependencies
 
